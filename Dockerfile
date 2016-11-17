@@ -2,6 +2,10 @@ FROM eboraas/apache-php
 
 MAINTAINER "Lmaky <lmaky88@gmail.com">
 
+COPY apache_default /etc/apache2/sites-available/000-default.conf
+
+RUN /usr/sbin/a2enmod rewrite
+
 RUN apt-get update \
   && apt-get install -y wget \
   && rm -rf /var/lib/apt/lists/*
