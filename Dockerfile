@@ -13,3 +13,7 @@ RUN apt-get update \
 RUN wget https://www.adminer.org/static/download/4.2.5/adminer-4.2.5-mysql.php \
   && mkdir -p /var/www/html/adminer \
   && mv adminer-4.2.5-mysql.php /var/www/html/adminer/index.php
+
+COPY apache2-foreground /usr/local/bin/apache2-foreground
+
+CMD ["apache2-foreground"]
